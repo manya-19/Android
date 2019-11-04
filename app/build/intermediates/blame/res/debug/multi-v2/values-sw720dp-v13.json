@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Manya\\Pictures\\Travel-Mate-master\\Android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Manya\\.gradle\\caches\\transforms-2\\files-2.1\\9c8839e4c36302d558b55d2dc43a4b53\\core-0.9.6.0\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Manya\\.gradle\\caches\\transforms-2\\files-2.1\\96060f9368dcd7b25e36a926afeeec33\\mediarouter-v7-26.1.0\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,124",
+                        "endColumns": "68,68",
+                        "endOffsets": "119,188"
+                    },
+                    "to": {
+                        "startLines": "3,4",
+                        "startColumns": "4,4",
+                        "startOffsets": "107,176",
+                        "endColumns": "68,68",
+                        "endOffsets": "171,240"
+                    }
+                }
+            ]
+        }
+    ]
+}

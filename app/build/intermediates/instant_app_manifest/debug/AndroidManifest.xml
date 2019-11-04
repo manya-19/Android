@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.github.project_travel_mate"
+    android:targetSandboxVersion="2"
+    android:versionCode="49"
+    android:versionName="5.6.2" >
+
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="28" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.screen.landscape"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.wifi"
+        android:required="false" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="io.github.project_travel_mate.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="io.github.project_travel_mate.permission.C2D_MESSAGE" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true" />
+
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name="io.github.project_travel_mate.TravelMateApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@drawable/google_travel_logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" >
+        </meta-data>
+
+        <activity android:name="io.github.project_travel_mate.destinations.Mapdisp" />
+        <activity android:name="io.github.project_travel_mate.destinations.Distances" />
+        <activity
+            android:name="io.github.project_travel_mate.friend.Main2Activity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="io.github.project_travel_mate.mytrips.TripImageActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="io.github.project_travel_mate.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNoBar"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="project-travel-mate.github.io" />
+                <data android:scheme="https" />
+                <data android:scheme="http" />
+                <data android:pathPattern=".*" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="utils.GPSTracker"
+            android:enabled="true" />
+
+        <activity
+            android:name="io.github.project_travel_mate.utilities.ChecklistActivity"
+            android:label="@string/title_activity_select_city"
+            android:theme="@style/AppTheme_picker" />
+        <activity
+            android:name="io.github.project_travel_mate.travel.ShoppingCurrentCityActivity"
+            android:label="@string/title_activity_shopping_currentcity"
+            android:theme="@style/AppTheme_picker" />
+        <activity
+            android:name="io.github.project_travel_mate.travel.HotelsActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_hotels"
+            android:theme="@style/AppTheme_picker" />
+        <activity
+            android:name="io.github.project_travel_mate.travel.MapViewRealTimeActivity"
+            android:label="@string/title_activity_map"
+            android:theme="@style/AppTheme_picker" />
+        <activity
+            android:name="io.github.project_travel_mate.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeNoBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name="io.github.project_travel_mate.destinations.funfacts.FunFactsActivity"
+            android:label="@string/title_activity_fun_facts"
+            android:theme="@style/AppTheme_picker" />
+        <activity android:name="io.github.project_travel_mate.utilities.ShareContactActivity" />
+        <activity
+            android:name="io.github.project_travel_mate.login.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppThemeNoBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="io.github.project_travel_mate.destinations.description.FinalCityInfoActivity"
+            android:theme="@style/AppThemeNoBar" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.PlacesOnMapActivity" />
+        <activity android:name="io.github.project_travel_mate.mytrips.AddNewTripActivity" />
+        <activity
+            android:name="io.github.project_travel_mate.mytrips.MyTripInfoActivity"
+            android:theme="@style/AppThemeNoBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.TweetsActivity" />
+        <activity
+            android:name="io.github.project_travel_mate.VerifyEmailActivity"
+            android:label="@string/verify_email"
+            android:theme="@style/AppThemeNoBar" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="io.github.project_travel_mate.shareFile"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="io.github.project_travel_mate.ProfileActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name="io.github.project_travel_mate.friend.FriendsProfileActivity" />
+        <activity android:name="io.github.project_travel_mate.notifications.NotificationsActivity" />
+        <activity
+            android:name="io.github.project_travel_mate.FullScreenImage"
+            android:theme="@style/FullProfileImageTheme" />
+        <activity android:name="io.github.project_travel_mate.utilities.WeatherForecastActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.CompassActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.CurrencyActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.WorldClockActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.CurrencyListViewActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.TimezoneListViewActivity" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.WeatherActivity" />
+        <activity android:name="io.github.project_travel_mate.utilities.UpcomingWeekendsActivity" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.CityHistoryActivity" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.CityMapActivity" />
+        <activity android:name="io.github.project_travel_mate.travel.ListViewRealTimeActivity" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.RestaurantsActivity" />
+        <activity android:name="io.github.project_travel_mate.destinations.description.TweetsDescriptionActivity" />
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
+        <activity
+            android:name="io.github.project_travel_mate.utilities.QuotesActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="io.github.project_travel_mate.DeleteProfilePictureActivity"
+            android:icon="@drawable/ic_delete_round"
+            android:label="@string/remove_photo"
+            android:theme="@android:style/Theme.NoDisplay" >
+            <intent-filter>
+                <action android:name="android.intent.action.DELETE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.github.project_travel_mate.destinations.description.RestaurantDetailsActivity"
+            android:theme="@style/AppThemeNoBar" />
+
+        <receiver android:name="widget.CheckListWidgetProvider" >
+            <intent-filter>
+
+                <!-- This widget provider receives broadcast with following action name or simply onUpdate of AppWidgetProvider is called -->
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <!-- linking up xml file of appwidget-provider to AppWidgetProvider -->
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/checklist_widget_info" />
+        </receiver>
+
+        <service
+            android:name="widget.CheckListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <receiver android:name="widget.ClockWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/clock_widget_info" />
+        </receiver>
+
+        <activity android:name="widget.ClockWidgetConfigureActivity" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCZkX4ptMBwaNL87lWAGgkPzy_Nv7ivJec" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <receiver
+            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.analytics.AnalyticsJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+            Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
+
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" />
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService" />
+
+        <activity
+            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+        <!--
+             FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.android.gms.tagmanager.TagManagerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+            android:exported="true"
+            android:noHistory="true" > <!-- optional, removes the previewActivity from the activity stack. -->
+            <intent-filter>
+                <data android:scheme="tagmanager.c.io.github.project_travel_mate" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="io.github.project_travel_mate" />
+            </intent-filter>
+        </receiver>
+        <!--
+             FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="io.github.project_travel_mate.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+
+        <provider
+            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="io.github.project_travel_mate.lifecycle-trojan"
+            android:exported="false"
+            android:multiprocess="true" />
+
+        <service
+            android:name="com.evernote.android.job.v21.PlatformJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="com.evernote.android.job.v14.PlatformAlarmService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="com.evernote.android.job.v14.PlatformAlarmServiceExact"
+            android:exported="false" />
+
+        <receiver
+            android:name="com.evernote.android.job.v14.PlatformAlarmReceiver"
+            android:exported="false" >
+            <intent-filter>
+
+                <!-- Keep the filter for legacy intents -->
+                <action android:name="com.evernote.android.job.v14.RUN_JOB" />
+                <action android:name="net.vrallev.android.job.v14.RUN_JOB" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.evernote.android.job.JobBootReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.evernote.android.job.gcm.PlatformGcmService"
+            android:enabled="false"
+            android:exported="true"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.evernote.android.job.JobRescheduleService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>
