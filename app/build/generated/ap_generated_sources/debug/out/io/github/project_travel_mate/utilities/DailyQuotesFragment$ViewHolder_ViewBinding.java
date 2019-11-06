@@ -20,9 +20,9 @@ import java.lang.Override;
 public class DailyQuotesFragment$ViewHolder_ViewBinding implements Unbinder {
   private DailyQuotesFragment.ViewHolder target;
 
-  private View view2131362065;
+  private View view2131362067;
 
-  private View view2131361968;
+  private View view2131361969;
 
   @UiThread
   public DailyQuotesFragment$ViewHolder_ViewBinding(final DailyQuotesFragment.ViewHolder target,
@@ -36,7 +36,7 @@ public class DailyQuotesFragment$ViewHolder_ViewBinding implements Unbinder {
     target.authorTv = Utils.findRequiredViewAsType(source, R.id.author_textView, "field 'authorTv'", TextView.class);
     view = Utils.findRequiredView(source, R.id.fab, "field 'share' and method 'onFloatingActionBarClicked'");
     target.share = Utils.castView(view, R.id.fab, "field 'share'", FloatingActionButton.class);
-    view2131362065 = view;
+    view2131362067 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,7 +45,7 @@ public class DailyQuotesFragment$ViewHolder_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.continue_button, "field 'continueButton' and method 'onContinueButtonClicked'");
     target.continueButton = Utils.castView(view, R.id.continue_button, "field 'continueButton'", FlatButton.class);
-    view2131361968 = view;
+    view2131361969 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,9 +70,9 @@ public class DailyQuotesFragment$ViewHolder_ViewBinding implements Unbinder {
     target.continueButton = null;
     target.quotesCheckBox = null;
 
-    view2131362065.setOnClickListener(null);
-    view2131362065 = null;
-    view2131361968.setOnClickListener(null);
-    view2131361968 = null;
+    view2131362067.setOnClickListener(null);
+    view2131362067 = null;
+    view2131361969.setOnClickListener(null);
+    view2131361969 = null;
   }
 }

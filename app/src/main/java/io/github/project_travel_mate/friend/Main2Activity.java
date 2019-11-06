@@ -18,12 +18,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.OnClick;
@@ -33,11 +37,16 @@ public class Main2Activity extends AppCompatActivity  {
 
     final int PICK_CONTACT_REQUEST = 1;
     Uri tmp_url;
+    Button saveBtn;
     public static String x;
     String name; String pn;
-    String [] num;
+    String designation;
+    String location;
+    String  num;
     ArrayList<String> fruits_list;
+    ArrayList<HashMap<String, String>> userList;
     ArrayAdapter<String> arrayAdapter;
+    ListAdapter adapter;
     AlertDialog.Builder builder;
     int PERMISSION_REQUEST_CODE;
 
@@ -48,19 +57,24 @@ public class Main2Activity extends AppCompatActivity  {
         setContentView( R.layout.activity_main2 );
         int pop = 100;
         final ListView lv = (ListView) findViewById( R.id.listview );
+        DbHandler db = new DbHandler(this);
+        userList = db.getUsers();
+        adapter = new SimpleAdapter(Main2Activity.this,  userList,  R.layout.list_row,
+                new String[]{"name", "designation", "location"}, new int[]{R.id.name, R.id.designation, R.id.location});
 
         Button btn = (Button) findViewById( R.id.button3 );
         builder = new AlertDialog.Builder(this);
-        String[] fruits = new String[] { "", };
+        //String[] fruits = new String[] { "", };
 
         // Create a List from String Array elements
-        fruits_list = new ArrayList<String>(Arrays.asList(fruits));
+        // fruits_list = new ArrayList<String>(Arrays.asList(fruits));
 
         // Create an ArrayAdapter from List
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fruits_list);
+        //arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fruits_list);
 
         // DataBind ListView with items from ArrayAdapter
-        lv.setAdapter(arrayAdapter);
+        lv.setAdapter(adapter);
+
         lv.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -71,8 +85,10 @@ public class Main2Activity extends AppCompatActivity  {
                                 ActivityCompat.requestPermissions(Main2Activity.this, new String[]
                                         {
                                         Manifest.permission.CALL_PHONE
-                                        }, PERMISSION_REQUEST_CODE);
-                                String num = fruits_list.get( i );
+                                        },  PERMISSION_REQUEST_CODE);
+                                HashMap<String, String> user = new HashMap<>();
+                                user = userList.get( i );
+                                num = user.get ("name");
                                 String dial = "tel:" + num;
                                 startActivity(new Intent(Intent.ACTION_CALL,
 
@@ -85,7 +101,9 @@ public class Main2Activity extends AppCompatActivity  {
                         .setNegativeButton("Message", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 //  Action for 'NO' Button
-                                String num = fruits_list.get( i );
+                                HashMap<String, String> user = new HashMap<>();
+                                user = userList.get( i );
+                                num = user.get ("name");
                                 String dial = "tel:" + num;
                                 Intent intent = new Intent(Intent.ACTION_SENDTO);
                                 intent.setData(Uri.parse("smsto:" + Uri.encode(dial)));
@@ -147,8 +165,13 @@ public class Main2Activity extends AppCompatActivity  {
                 // Retrieve the phone number from the NUMBER column
                 int column = cursor.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER);
                 String number = cursor.getString(column);
+                DbHandler dbHandler = new DbHandler(Main2Activity.this);
+                dbHandler.insertUserDetails(number, "", "");
                 Toast.makeText( this, number, Toast.LENGTH_SHORT ).show();
-                fruits_list.add(number);
+                //fruits_list.add(number);
+                HashMap<String, String> newMap = new HashMap<String, String>();
+                newMap.put("name", number);
+                userList.add(newMap);
 
                 /*
                     notifyDataSetChanged ()
@@ -156,7 +179,7 @@ public class Main2Activity extends AppCompatActivity  {
                         data has been changed and any View reflecting the
                         data set should refresh itself.
                  */
-                arrayAdapter.notifyDataSetChanged();
+                ((BaseAdapter) adapter).notifyDataSetChanged();
                 // Do something with the contact here (bigger example below)*/
 
             }

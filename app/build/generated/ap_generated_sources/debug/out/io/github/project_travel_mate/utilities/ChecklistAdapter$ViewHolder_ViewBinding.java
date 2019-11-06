@@ -19,13 +19,13 @@ import java.lang.Override;
 public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
   private ChecklistAdapter.ViewHolder target;
 
-  private View view2131362433;
-
-  private View view2131362435;
+  private View view2131362436;
 
   private View view2131362438;
 
-  private View view2131362434;
+  private View view2131362441;
+
+  private View view2131362437;
 
   @UiThread
   @SuppressLint("ClickableViewAccessibility")
@@ -36,7 +36,7 @@ public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.row_cb, "field 'mCheckBox' and method 'onClickCheckbox'");
     target.mCheckBox = Utils.castView(view, R.id.row_cb, "field 'mCheckBox'", CheckBox.class);
-    view2131362433 = view;
+    view2131362436 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -45,7 +45,7 @@ public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.row_handle, "field 'mHandle' and method 'onTouchHandle'");
     target.mHandle = Utils.castView(view, R.id.row_handle, "field 'mHandle'", ImageView.class);
-    view2131362435 = view;
+    view2131362438 = view;
     view.setOnTouchListener(new View.OnTouchListener() {
       @Override
       public boolean onTouch(View p0, MotionEvent p1) {
@@ -55,7 +55,7 @@ public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
     target.mPlus = Utils.findRequiredViewAsType(source, R.id.row_plus, "field 'mPlus'", ImageView.class);
     view = Utils.findRequiredView(source, R.id.row_text, "field 'mText' and method 'onFocusChange'");
     target.mText = Utils.castView(view, R.id.row_text, "field 'mText'", EditText.class);
-    view2131362438 = view;
+    view2131362441 = view;
     view.setOnFocusChangeListener(new View.OnFocusChangeListener() {
       @Override
       public void onFocusChange(View p0, boolean p1) {
@@ -64,7 +64,7 @@ public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
     });
     view = Utils.findRequiredView(source, R.id.row_delete, "field 'mDelete' and method 'onClickDelete'");
     target.mDelete = Utils.castView(view, R.id.row_delete, "field 'mDelete'", ImageView.class);
-    view2131362434 = view;
+    view2131362437 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -86,13 +86,13 @@ public class ChecklistAdapter$ViewHolder_ViewBinding implements Unbinder {
     target.mText = null;
     target.mDelete = null;
 
-    view2131362433.setOnClickListener(null);
-    view2131362433 = null;
-    view2131362435.setOnTouchListener(null);
-    view2131362435 = null;
-    view2131362438.setOnFocusChangeListener(null);
+    view2131362436.setOnClickListener(null);
+    view2131362436 = null;
+    view2131362438.setOnTouchListener(null);
     view2131362438 = null;
-    view2131362434.setOnClickListener(null);
-    view2131362434 = null;
+    view2131362441.setOnFocusChangeListener(null);
+    view2131362441 = null;
+    view2131362437.setOnClickListener(null);
+    view2131362437 = null;
   }
 }

@@ -18,7 +18,7 @@ import java.lang.Override;
 public class ChecklistFragment_ViewBinding implements Unbinder {
   private ChecklistFragment target;
 
-  private View view2131362212;
+  private View view2131362214;
 
   @UiThread
   public ChecklistFragment_ViewBinding(final ChecklistFragment target, View source) {
@@ -28,7 +28,7 @@ public class ChecklistFragment_ViewBinding implements Unbinder {
     target.mPendingRecycler = Utils.findRequiredViewAsType(source, R.id.recycler_pending, "field 'mPendingRecycler'", RecyclerView.class);
     view = Utils.findRequiredView(source, R.id.layout_divider, "field 'mTickedBanner' and method 'onTickedBannerClick'");
     target.mTickedBanner = Utils.castView(view, R.id.layout_divider, "field 'mTickedBanner'", LinearLayout.class);
-    view2131362212 = view;
+    view2131362214 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -53,7 +53,7 @@ public class ChecklistFragment_ViewBinding implements Unbinder {
     target.mBannerArrow = null;
     target.mFinishedRecycler = null;
 
-    view2131362212.setOnClickListener(null);
-    view2131362212 = null;
+    view2131362214.setOnClickListener(null);
+    view2131362214 = null;
   }
 }

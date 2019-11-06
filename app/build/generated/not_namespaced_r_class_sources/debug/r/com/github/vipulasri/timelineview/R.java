@@ -28,8 +28,8 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int horizontal = 0x7f0a014f;
-        public static final int vertical = 0x7f0a0343;
+        public static final int horizontal = 0x7f0a0151;
+        public static final int vertical = 0x7f0a0346;
     }
     public static final class string {
         private string() {}

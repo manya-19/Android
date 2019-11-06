@@ -15,7 +15,7 @@ import utils.ExpandableHeightGridView;
 public class ContributorsFragment_ViewBinding implements Unbinder {
   private ContributorsFragment target;
 
-  private View view2131361972;
+  private View view2131361973;
 
   @UiThread
   public ContributorsFragment_ViewBinding(final ContributorsFragment target, View source) {
@@ -25,7 +25,7 @@ public class ContributorsFragment_ViewBinding implements Unbinder {
     target.android_contributors_gv = Utils.findRequiredViewAsType(source, R.id.android_contributors_gv, "field 'android_contributors_gv'", ExpandableHeightGridView.class);
     target.server_contributors_gv = Utils.findRequiredViewAsType(source, R.id.server_contributors_gv, "field 'server_contributors_gv'", ExpandableHeightGridView.class);
     view = Utils.findRequiredView(source, R.id.contributors_footer, "method 'github_project_cardview_clicked'");
-    view2131361972 = view;
+    view2131361973 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -44,7 +44,7 @@ public class ContributorsFragment_ViewBinding implements Unbinder {
     target.android_contributors_gv = null;
     target.server_contributors_gv = null;
 
-    view2131361972.setOnClickListener(null);
-    view2131361972 = null;
+    view2131361973.setOnClickListener(null);
+    view2131361973 = null;
   }
 }

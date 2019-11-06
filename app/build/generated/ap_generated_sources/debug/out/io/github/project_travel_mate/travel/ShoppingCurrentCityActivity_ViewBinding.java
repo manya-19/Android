@@ -20,7 +20,7 @@ import java.lang.Override;
 public class ShoppingCurrentCityActivity_ViewBinding implements Unbinder {
   private ShoppingCurrentCityActivity target;
 
-  private View view2131362106;
+  private View view2131362108;
 
   @UiThread
   public ShoppingCurrentCityActivity_ViewBinding(ShoppingCurrentCityActivity target) {
@@ -37,7 +37,7 @@ public class ShoppingCurrentCityActivity_ViewBinding implements Unbinder {
     target.q = Utils.findRequiredViewAsType(source, R.id.query, "field 'q'", EditText.class);
     view = Utils.findRequiredView(source, R.id.go, "field 'ok' and method 'onClick'");
     target.ok = Utils.castView(view, R.id.go, "field 'ok'", Button.class);
-    view2131362106 = view;
+    view2131362108 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -65,7 +65,7 @@ public class ShoppingCurrentCityActivity_ViewBinding implements Unbinder {
     target.layout = null;
     target.showCityName = null;
 
-    view2131362106.setOnClickListener(null);
-    view2131362106 = null;
+    view2131362108.setOnClickListener(null);
+    view2131362108 = null;
   }
 }

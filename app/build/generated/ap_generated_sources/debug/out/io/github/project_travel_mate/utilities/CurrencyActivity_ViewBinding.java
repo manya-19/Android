@@ -21,13 +21,13 @@ import java.lang.Override;
 public class CurrencyActivity_ViewBinding implements Unbinder {
   private CurrencyActivity target;
 
-  private View view2131361932;
+  private View view2131361933;
 
-  private View view2131362102;
+  private View view2131362104;
 
-  private View view2131362580;
+  private View view2131362583;
 
-  private View view2131361900;
+  private View view2131361901;
 
   @UiThread
   public CurrencyActivity_ViewBinding(CurrencyActivity target) {
@@ -50,7 +50,7 @@ public class CurrencyActivity_ViewBinding implements Unbinder {
     target.graph = Utils.findRequiredViewAsType(source, R.id.graph, "field 'graph'", LineChart.class);
     view = Utils.findRequiredView(source, R.id.chart_duration_spinner, "field 'chart_duration_spinner' and method 'onChartDurationSpinnerClicked'");
     target.chart_duration_spinner = Utils.castView(view, R.id.chart_duration_spinner, "field 'chart_duration_spinner'", Spinner.class);
-    view2131361932 = view;
+    view2131361933 = view;
     ((AdapterView<?>) view).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
       @Override
       public void onItemSelected(AdapterView<?> p0, View p1, int p2, long p3) {
@@ -62,7 +62,7 @@ public class CurrencyActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.from_field, "method 'fromSelected'");
-    view2131362102 = view;
+    view2131362104 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -70,7 +70,7 @@ public class CurrencyActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.to_field, "method 'toSelected'");
-    view2131362580 = view;
+    view2131362583 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -78,7 +78,7 @@ public class CurrencyActivity_ViewBinding implements Unbinder {
       }
     });
     view = Utils.findRequiredView(source, R.id.button_convert, "method 'onConvertclicked'");
-    view2131361900 = view;
+    view2131361901 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -105,13 +105,13 @@ public class CurrencyActivity_ViewBinding implements Unbinder {
     target.graph = null;
     target.chart_duration_spinner = null;
 
-    ((AdapterView<?>) view2131361932).setOnItemSelectedListener(null);
-    view2131361932 = null;
-    view2131362102.setOnClickListener(null);
-    view2131362102 = null;
-    view2131362580.setOnClickListener(null);
-    view2131362580 = null;
-    view2131361900.setOnClickListener(null);
-    view2131361900 = null;
+    ((AdapterView<?>) view2131361933).setOnItemSelectedListener(null);
+    view2131361933 = null;
+    view2131362104.setOnClickListener(null);
+    view2131362104 = null;
+    view2131362583.setOnClickListener(null);
+    view2131362583 = null;
+    view2131361901.setOnClickListener(null);
+    view2131361901 = null;
   }
 }

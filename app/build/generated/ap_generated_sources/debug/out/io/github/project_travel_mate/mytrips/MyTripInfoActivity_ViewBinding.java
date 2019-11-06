@@ -28,13 +28,13 @@ import java.lang.Override;
 public class MyTripInfoActivity_ViewBinding implements Unbinder {
   private MyTripInfoActivity target;
 
-  private View view2131361944;
+  private View view2131361945;
 
   private View view2131361852;
 
-  private View view2131362095;
+  private View view2131362097;
 
-  private TextWatcher view2131362095TextWatcher;
+  private TextWatcher view2131362097TextWatcher;
 
   @UiThread
   public MyTripInfoActivity_ViewBinding(MyTripInfoActivity target) {
@@ -48,7 +48,7 @@ public class MyTripInfoActivity_ViewBinding implements Unbinder {
     View view;
     view = Utils.findRequiredView(source, R.id.city_image, "field 'cityImageView' and method 'cityImageClicked'");
     target.cityImageView = Utils.castView(view, R.id.city_image, "field 'cityImageView'", ImageView.class);
-    view2131361944 = view;
+    view2131361945 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -69,8 +69,8 @@ public class MyTripInfoActivity_ViewBinding implements Unbinder {
     target.listView = Utils.findRequiredViewAsType(source, R.id.friend_list, "field 'listView'", NestedListView.class);
     view = Utils.findRequiredView(source, R.id.friend_email, "field 'friendEmail' and method 'onTextChanged'");
     target.friendEmail = Utils.castView(view, R.id.friend_email, "field 'friendEmail'", AutoCompleteTextView.class);
-    view2131362095 = view;
-    view2131362095TextWatcher = new TextWatcher() {
+    view2131362097 = view;
+    view2131362097TextWatcher = new TextWatcher() {
       @Override
       public void onTextChanged(CharSequence p0, int p1, int p2, int p3) {
         target.onTextChanged();
@@ -84,7 +84,7 @@ public class MyTripInfoActivity_ViewBinding implements Unbinder {
       public void afterTextChanged(Editable p0) {
       }
     };
-    ((TextView) view).addTextChangedListener(view2131362095TextWatcher);
+    ((TextView) view).addTextChangedListener(view2131362097TextWatcher);
     target.tripName = Utils.findRequiredViewAsType(source, R.id.trip_name, "field 'tripName'", EditText.class);
     target.friendTitle = Utils.findRequiredViewAsType(source, R.id.friend_title, "field 'friendTitle'", TextView.class);
     target.showIcon = Utils.findRequiredViewAsType(source, R.id.plus_icon, "field 'showIcon'", ImageView.class);
@@ -127,12 +127,12 @@ public class MyTripInfoActivity_ViewBinding implements Unbinder {
     target.addMeToTrip = null;
     target.publicPrivateInfo = null;
 
-    view2131361944.setOnClickListener(null);
-    view2131361944 = null;
+    view2131361945.setOnClickListener(null);
+    view2131361945 = null;
     view2131361852.setOnClickListener(null);
     view2131361852 = null;
-    ((TextView) view2131362095).removeTextChangedListener(view2131362095TextWatcher);
-    view2131362095TextWatcher = null;
-    view2131362095 = null;
+    ((TextView) view2131362097).removeTextChangedListener(view2131362097TextWatcher);
+    view2131362097TextWatcher = null;
+    view2131362097 = null;
   }
 }

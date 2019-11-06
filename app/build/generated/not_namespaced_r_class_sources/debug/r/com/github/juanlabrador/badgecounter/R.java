@@ -18,8 +18,8 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int count_badge = 0x7f0a00b7;
-        public static final int icon_badge = 0x7f0a015f;
+        public static final int count_badge = 0x7f0a00b8;
+        public static final int icon_badge = 0x7f0a0161;
     }
     public static final class layout {
         private layout() {}

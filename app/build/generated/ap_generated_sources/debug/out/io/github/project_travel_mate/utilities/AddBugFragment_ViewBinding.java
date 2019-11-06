@@ -17,7 +17,7 @@ import java.lang.Override;
 public class AddBugFragment_ViewBinding implements Unbinder {
   private AddBugFragment target;
 
-  private View view2131361902;
+  private View view2131361903;
 
   @UiThread
   public AddBugFragment_ViewBinding(final AddBugFragment target, View source) {
@@ -28,7 +28,7 @@ public class AddBugFragment_ViewBinding implements Unbinder {
     target.mDescriptionEditText = Utils.findRequiredViewAsType(source, R.id.edit_text_bugreport, "field 'mDescriptionEditText'", EditText.class);
     view = Utils.findRequiredView(source, R.id.button_report, "field 'mReportButton' and method 'onReportClicked'");
     target.mReportButton = Utils.castView(view, R.id.button_report, "field 'mReportButton'", Button.class);
-    view2131361902 = view;
+    view2131361903 = view;
     view.setOnClickListener(new DebouncingOnClickListener() {
       @Override
       public void doClick(View p0) {
@@ -48,7 +48,7 @@ public class AddBugFragment_ViewBinding implements Unbinder {
     target.mDescriptionEditText = null;
     target.mReportButton = null;
 
-    view2131361902.setOnClickListener(null);
-    view2131361902 = null;
+    view2131361903.setOnClickListener(null);
+    view2131361903 = null;
   }
 }
